@@ -743,6 +743,7 @@ require('lazy').setup({
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
+  -- egalletta plugins:
   {
     'kdheepak/lazygit.nvim',
     cmd = {
@@ -760,6 +761,20 @@ require('lazy').setup({
     -- order to load the plugin when the command is run for the first time
     keys = {
       { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+    },
+  },
+  {
+    'm4xshen/autoclose.nvim',
+    opts = {},
+  },
+  {
+    'SmiteshP/nvim-navbuddy',
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'SmiteshP/nvim-navic',
+      'MunifTanjim/nui.nvim',
+      'numToStr/Comment.nvim', -- Optional
+      'nvim-telescope/telescope.nvim', -- Optional
     },
   },
 
