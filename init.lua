@@ -69,6 +69,9 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- winbar status
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -768,14 +771,11 @@ require('lazy').setup({
     opts = {},
   },
   {
-    'SmiteshP/nvim-navbuddy',
+    'SmiteshP/nvim-navic',
     dependencies = {
       'neovim/nvim-lspconfig',
-      'SmiteshP/nvim-navic',
-      'MunifTanjim/nui.nvim',
-      'numToStr/Comment.nvim', -- Optional
-      'nvim-telescope/telescope.nvim', -- Optional
     },
+    opts = { lsp = { auto_attach = true } },
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
