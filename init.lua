@@ -112,6 +112,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Auto Add Copyright Headers
+vim.api.nvim_create_autocmd({ 'BufNewFile' }, {
+  callback = function()
+    vim.cmd '0r ~/.config/nvim/copyright/copyright_hash.txt'
+    vim.cmd 'normal G$"|startinsert!'
+  end,
+  pattern = { '*.py', '*.sh', '*.tf', '*.yaml', '*.yml' },
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
